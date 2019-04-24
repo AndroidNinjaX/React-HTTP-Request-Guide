@@ -15,7 +15,9 @@ class Blog extends Component {
         /*Axios has a .get method for sending GET request. This method takes at least 1 argument. We use the URL that we get from our dummy page.*/
         axios.get("http://jsonplaceholder.typicode.com/posts")
             .then(response => {
+                //We get just the selected data we want.
                 const posts = response.data.slice(0, 4);
+                //We make a new const and add an "author" to each element.
                 const updatedPost = posts.map(post => {
                     return {
                         ...post,
