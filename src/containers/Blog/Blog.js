@@ -15,7 +15,14 @@ class Blog extends Component {
         /*Axios has a .get method for sending GET request. This method takes at least 1 argument. We use the URL that we get from our dummy page.*/
         axios.get("http://jsonplaceholder.typicode.com/posts")
             .then(response => {
-                this.setState({post: response.data});
+                const posts = response.data.slice(0, 4);
+                const updatedPost = posts.map(post => {
+                    return {
+                        ...post,
+                        author: 'TJ'
+                    }
+                });
+                this.setState({post: updatedPost});
                 //console.log(response);
             });
     }
@@ -31,7 +38,10 @@ class Blog extends Component {
                 -We pass these to the "Post" component.
         ------------------*/ 
         const post = this.state.post.map(post => {
-            return <Post key={post.id} title={post.title} />
+            return <Post 
+                        key={post.id} 
+                        title={post.title} 
+                        author={post.author} />
         });
 
         return (
