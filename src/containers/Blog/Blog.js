@@ -7,7 +7,8 @@ import './Blog.css';
 
 class Blog extends Component {
     state = {
-        post: []
+        post: [],
+        selectedPostId: null
     }
 
     //We use componentDidMount and make the HTTP request here.
@@ -29,6 +30,10 @@ class Blog extends Component {
             });
     }
 
+    postSelectedHandler = (id) => {
+        this.setState({selectedPostId: id});
+    }
+
     render () {
         /*------------------
         Now we make a "post" const, and we want to use this to render all the "Post" components dynamically.
@@ -43,7 +48,8 @@ class Blog extends Component {
             return <Post 
                         key={post.id} 
                         title={post.title} 
-                        author={post.author} />
+                        author={post.author}
+                        clicked={() => this.postSelectedHandler(post.id)} />
         });
 
         return (
@@ -53,7 +59,7 @@ class Blog extends Component {
                     {post}
                 </section>
                 <section>
-                    <FullPost />
+                    <FullPost id={this.state.selectedPostId}/>
                 </section>
                 <section>
                     <NewPost />
