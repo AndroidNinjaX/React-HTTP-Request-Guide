@@ -14,7 +14,7 @@ class FullPost extends Component {
         if (this.props.id) {
             /*We check if we actually have a loadedPost already, and then if our 'loadedPost.id', is NOT equal to our current 'props.id'. Inintially this will fail, because we do not have a loaded post. So we need to check if we dont have a loaded post, OR if we do, then also check our ID's*/
             if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)) {
-                axios.get("https://jsonplaceholder.typicode.com/posts/" + this.props.id)
+                axios.get("/posts/" + this.props.id)
                     .then(response => {
                         //console.log(response.data);
                         this.setState({loadedPost: response.data});
@@ -24,7 +24,7 @@ class FullPost extends Component {
     }
 
     deletePostHandler = () => {
-        axios.delete("https://jsonplaceholder.typicode.com/posts/" + this.props.id)
+        axios.delete("/posts/" + this.props.id)
             .then(response => {
                 console.log(response);
             });
