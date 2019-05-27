@@ -15,7 +15,7 @@ class Blog extends Component {
     //We use componentDidMount and make the HTTP request here.
     componentDidMount () {
         /*Axios has a .get method for sending GET request. This method takes at least 1 argument. We use the URL that we get from our dummy page.*/
-        axios.get("http://jsonplaceholder.typicode.com/postsss")
+        axios.get("http://jsonplaceholder.typicode.com/posts")
             .then(response => {
                 //We get just the selected data we want.
                 const posts = response.data.slice(0, 4);
