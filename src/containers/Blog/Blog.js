@@ -40,6 +40,19 @@ class Blog extends Component {
     }
 
     render () {
+        //Make a new variable and then override it, if error is NOT true.
+        let post = <p style={{textAlign: "center"}}>Something went wrong!</p>;
+
+        //Override initial "post" if we do NOT have an error.
+        if (!this.state.error) {
+            post = this.state.post.map(post => {
+                return <Post 
+                            key={post.id} 
+                            title={post.title} 
+                            author={post.author}
+                            clicked={() => this.postSelectedHandler(post.id)} />
+            });
+        }
         /*------------------
         Now we make a "post" const, and we want to use this to render all the "Post" components dynamically.
             -We take thew array of "post" from state, and "map" through them.
@@ -49,13 +62,6 @@ class Blog extends Component {
                 -Also it has a "title". 
                 -We pass these to the "Post" component.
         ------------------*/ 
-        const post = this.state.post.map(post => {
-            return <Post 
-                        key={post.id} 
-                        title={post.title} 
-                        author={post.author}
-                        clicked={() => this.postSelectedHandler(post.id)} />
-        });
 
         return (
             <div>
