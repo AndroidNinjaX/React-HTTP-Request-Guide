@@ -8,13 +8,14 @@ import './Blog.css';
 class Blog extends Component {
     state = {
         post: [],
-        selectedPostId: null
+        selectedPostId: null,
+        error: false
     }
 
     //We use componentDidMount and make the HTTP request here.
     componentDidMount () {
         /*Axios has a .get method for sending GET request. This method takes at least 1 argument. We use the URL that we get from our dummy page.*/
-        axios.get("http://jsonplaceholder.typicode.com/posts")
+        axios.get("http://jsonplaceholder.typicode.com/postsss")
             .then(response => {
                 //We get just the selected data we want.
                 const posts = response.data.slice(0, 4);
@@ -27,6 +28,10 @@ class Blog extends Component {
                 });
                 this.setState({post: updatedPost});
                 //console.log(response);
+            })
+            .catch(error => {
+                //console.log(error);
+                this.setState({error: true});
             });
     }
 
