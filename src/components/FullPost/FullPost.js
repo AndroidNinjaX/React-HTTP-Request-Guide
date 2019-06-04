@@ -26,6 +26,7 @@ class FullPost extends Component {
     deletePostHandler = () => {
         axios.delete("/posts/" + this.props.id)
             .then(response => {
+                console.log("This is dummy data, and will not acutlly delete anything. Status code '200' means it was successful");
                 console.log(response);
             });
     }
