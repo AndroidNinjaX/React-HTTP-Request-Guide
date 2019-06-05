@@ -27,7 +27,7 @@ class Blog extends Component {
                         </ul>
                     </nav>
                 </header>
-                <Post />
+                <Route />
             </div>
         );
     }
