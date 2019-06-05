@@ -15,11 +15,17 @@ class Blog extends Component {
                             {/*Change "<a herf='/'>" to "Link"*/}
                             <li><Link to="/">Home</Link></li>
                             {/*Demonstrate 'NavLink', and show "active" class*/}
-                            <li><NavLink to={{
+                            <li><NavLink 
+                                to={{
                                 pathname: "/new-post",
                                 hash: "#submit",
                                 search: "?quick-submit=true"
-                            }}>New Post</NavLink></li>
+                                }} 
+                                exact
+                                activeStyle={{
+                                    color: '#fa923f',
+                                    textDecoration: 'underline' 
+                                }}>New Post</NavLink></li>
                         </ul>
                     </nav>
                 </header>
