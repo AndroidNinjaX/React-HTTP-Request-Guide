@@ -16,8 +16,11 @@ class Blog extends Component {
                         </ul>
                     </nav>
                 </header>
+                {/*Dummy Routes for Show*/}
                 <Route path="/" exact render={() => <h1>Home</h1>} />
                 <Route path="/" render={() => <h1>Home 2</h1>} />
+                {/*Display a component*/}
+                <Route path="/" exact component={Posts} />
             </div>
         );
     }
