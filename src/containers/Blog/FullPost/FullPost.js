@@ -9,12 +9,12 @@ class FullPost extends Component {
     }
 
     /*Make sure to import Axios. Add this so we can add our 'Axios.get'. The URL has to target 1 single post.*/
-    componentDidUpdate () {
+    componentDidMount () {
         /*We check if 'props.id' is true or null. If true then send the request to the URL.*/
-        if (this.props.id) {
+        if (this.props.match.params.id) {
             /*We check if we actually have a loadedPost already, and then if our 'loadedPost.id', is NOT equal to our current 'props.id'. Inintially this will fail, because we do not have a loaded post. So we need to check if we dont have a loaded post, OR if we do, then also check our ID's*/
             if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)) {
-                axios.get("/posts/" + this.props.id)
+                axios.get("/posts/" + this.props.match.params.id)
                     .then(response => {
                         //console.log(response.data);
                         this.setState({loadedPost: response.data});
