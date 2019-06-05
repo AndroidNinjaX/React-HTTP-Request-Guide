@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-//import axios from 'axios';
-//This is the import of Axios Instance
-import axios from '../../axios';
 import './Blog.css';
 import Post from './Post/Posts';
+import { Route } from 'react-router-dom';
 
 class Blog extends Component {
     
