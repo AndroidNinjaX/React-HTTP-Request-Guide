@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Blog.css';
 import Posts from './Post/Posts';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import NewPost from './NewPost/NewPost';
 
 class Blog extends Component {
