@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Blog.css';
 import Posts from './Post/Posts';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, NavLink } from 'react-router-dom';
 import NewPost from './NewPost/NewPost';
 
 class Blog extends Component {
@@ -14,11 +14,12 @@ class Blog extends Component {
                         <ul>
                             {/*Change "<a herf='/'>" to "Link"*/}
                             <li><Link to="/">Home</Link></li>
-                            <li><Link to={{
+                            {/*Demonstrate 'NavLink', and show "active" class*/}
+                            <li><NavLink to={{
                                 pathname: "/new-post",
                                 hash: "#submit",
                                 search: "?quick-submit=true"
-                            }}>New Post</Link></li>
+                            }}>New Post</NavLink></li>
                         </ul>
                     </nav>
                 </header>
