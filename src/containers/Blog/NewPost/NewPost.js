@@ -21,7 +21,7 @@ class NewPost extends Component {
         axios.post("/posts", post)
             .then(response => {
                 console.log(response);
-                this.setState({submitted: true})
+                //this.setState({submitted: true})
             });
     }
 
