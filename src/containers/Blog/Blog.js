@@ -14,7 +14,7 @@ class Blog extends Component {
                     <nav>
                         <ul>
                             {/*Change "<a herf='/'>" to "Link"*/}
-                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/">Posts</Link></li>
                             {/*Demonstrate 'NavLink', and show "active" class*/}
                             <li><NavLink 
                                 to={{
