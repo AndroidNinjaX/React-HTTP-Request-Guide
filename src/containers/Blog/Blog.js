@@ -13,7 +13,7 @@ class Blog extends Component {
                     <nav>
                         <ul>
                             {/*Change "<a herf='/'>" to "Link"*/}
-                            <li><Link to="/">Posts</Link></li>
+                            <li><Link to="/posts/">Posts</Link></li>
                             {/*Demonstrate 'NavLink', and show "active" class*/}
                             <li><NavLink 
                                 to={{
@@ -35,7 +35,7 @@ class Blog extends Component {
                 {/*Display some component*/}
                 <Switch>
                     <Route path="/new-post" component={NewPost} />
-                    <Route path="/" component={Posts} />
+                    <Route path="/posts/" component={Posts} />
                 </Switch>
             </div>
         );

@@ -44,7 +44,8 @@ class Posts extends Component {
     }
 
     postSelectedHandler = (id) => {
-        this.setState({selectedPostId: id});
+        //this.setState({selectedPostId: id});
+        this.props.history.push( '/posts/' + id);
     }
 
     render() {
@@ -55,7 +56,7 @@ class Posts extends Component {
         if (!this.state.error) {
             post = this.state.post.map(post => {
                 return (
-                    <Link to={'/' + post.id} key={post.id}>
+                    <Link to={'/posts/' + post.id} key={post.id}>
                         <Post 
                             title={post.title} 
                             author={post.author}
@@ -70,7 +71,8 @@ class Posts extends Component {
                 <section className="Posts">
                     {post}
                 </section>
-                <Route path="/:id" exact component={FullPost} />
+                {/*Change "path='/:id;" to this, because this will render out URL dynamically.*/}
+                <Route path={this.props.match.url + "/:id"} exact component={FullPost} />
             </div>
             
         );
